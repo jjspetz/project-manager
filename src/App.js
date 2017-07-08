@@ -3,6 +3,8 @@ import './App.css';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+import Todo from './todo.jsx';
 import {indigo500, indigo100, indigo900, grey500, grey700, white} from 'material-ui/styles/colors';
 // import Contacts from './todo.jsx'
 
@@ -30,10 +32,13 @@ class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <main>
-          <AppBar title="TODO APP" />
-            <div>
-              It Works!
-            </div>
+          <AppBar
+            title="TODO APP"
+            iconElementLeft={<FlatButton />}
+            iconElementRight={<FlatButton label="Log in" />}
+          />
+
+          <Todo/>
         </main>
       </MuiThemeProvider>
     );
