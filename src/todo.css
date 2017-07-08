@@ -7,4 +7,5 @@
 
 .card ol {
   list-style-position: inside;
+  border: 2px dotted red;
 }
