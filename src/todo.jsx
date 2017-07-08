@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import {Card, CardTitle} from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 import './todo.css';
 
+const style = {
+  marginBottom: 20,
+};
 
 class Todo extends Component {
   render() {
@@ -11,16 +15,16 @@ class Todo extends Component {
           <CardTitle title="Uncompleted Tasks"/>
           <ol id='uTask' ondragover="allowDrop(event)" ondrop="drop(event)">
             <li>need to add</li>
-            <div className='add' id='add'>+ Add</div>
           </ol>
+          <RaisedButton className='add' id='add' label='+Add' primary={true} style={style}/>
         </Card>
 
         <Card className='card'>
           <CardTitle title="Completed Tasks"/>
           <ol id='cTask' ondragover="allowDrop(event)" ondrop="drop(event)">
             <li>need to add</li>
-            <div className='add' id='add'>+ Add</div>
           </ol>
+          <RaisedButton className='add' id='add' label='+Add' primary={true} style={style}/>
         </Card>
       </div>
     )
