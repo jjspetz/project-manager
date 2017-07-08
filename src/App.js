@@ -34,7 +34,7 @@ class App extends Component {
         <main>
           <AppBar
             title="TODO APP"
-            iconElementLeft={<FlatButton />}
+            showMenuIconButton={false}
             iconElementRight={<FlatButton label="Log in" />}
           />
 
