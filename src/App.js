@@ -31,15 +31,13 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <main>
+        <div>
           <AppBar
             title="TODO APP"
-            showMenuIconButton={false}
-            iconElementRight={<FlatButton label="Log in" />}
+            iconElementRight={<FlatButton label="+ Add" />}
           />
-
           <Todo/>
-        </main>
+        </div>
       </MuiThemeProvider>
     );
   }
