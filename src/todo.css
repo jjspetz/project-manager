@@ -5,6 +5,7 @@
   width: calc(33% - 25px);
   text-align: center;
   height: 80vh;
+  vertical-align: top;
 }
 .card:first-child {
   margin-left: 20px;
