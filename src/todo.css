@@ -12,5 +12,6 @@
 }
 .card ol {
   list-style-position: inside;
+  text-align: left;
   border: 2px dotted red;
 }
