@@ -1,11 +1,15 @@
+.flex-container {
+  display: flex;
+  align-content: stretch;
+  align-items: stretch;
+}
+
 .card {
-  display: inline-block;
   margin-top: 25px;
   margin-right: 20px;
-  width: calc(33% - 25px);
+  flex: 1 1 auto;
   text-align: center;
-  height: 80vh;
-  vertical-align: top;
+  min-height: 40vh;
 }
 .card:first-child {
   margin-left: 20px;
