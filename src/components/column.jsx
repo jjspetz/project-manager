@@ -10,8 +10,9 @@ class Column extends Component {
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
           {this.props.tasks.map((task) =>
-            <Task task={task} />
-          )}
+            task.column === this.props.title ?
+            <Task task={task.name} />
+            : null)}
         </ol>
       </Card>
     );

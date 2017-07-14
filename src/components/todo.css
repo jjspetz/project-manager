@@ -19,3 +19,7 @@
   text-align: left;
   border: 2px dotted red;
 }
+
+li {
+  font-size: 20pt;
+}
