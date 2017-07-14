@@ -15,10 +15,11 @@ class Todo extends Component {
       <div className='mainDisplay'>
         <AppBar
           title="TODO APP"
-          iconElementRight={<FlatButton label="+ Add" />}
+          iconElementRight={<FlatButton label="+ Add Task" />}
         />
         <div className='flex-container'>
-          <Column title='Uncompleted' tasks={['eat', 'sleep', 'code']} />
+          <Column title='Uncompleted' tasks={['eat', 'sleep']} />
+          <Column title='In Progress' tasks={['code']} />
           <Column title='Completed' tasks={[]} />
         </div>
       </div>

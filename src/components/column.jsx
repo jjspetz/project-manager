@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import {Card, CardTitle} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import Task from './task';
 
 class Column extends Component {
+
   render() {
     return (
       <Card className='card'>
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
           {this.props.tasks.map((task) =>
-            <li key={task}>{task}</li>
+            <Task task={task} />
           )}
         </ol>
       </Card>
