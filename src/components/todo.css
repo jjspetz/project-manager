@@ -5,6 +5,7 @@
 }
 
 .card {
+  position: relative;
   margin-top: 25px;
   margin-right: 20px;
   flex: 1 1 auto;
@@ -18,8 +19,19 @@
   list-style-position: inside;
   text-align: left;
   border: 2px dotted red;
+  margin-bottom: 60px;
 }
 
 li {
   font-size: 20pt;
+}
+.button {
+  position: absolute;
+  bottom: 12px;
+}
+.add {
+  right: 25px;
+}
+.minus {
+  left: 25px;
 }
