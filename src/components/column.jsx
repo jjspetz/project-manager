@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Card, CardTitle} from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
 import Task from './task';
 
 class Column extends Component {
