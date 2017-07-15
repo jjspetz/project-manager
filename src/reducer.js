@@ -1,18 +1,21 @@
-import { combineReducers }  from 'redux';
-import { routeReducer }     from 'redux-simple-router';
-import session              from './session';
 
-export default combineReducers({
-  routing: routeReducer,
-  session: session,
-});
+var initialState = {};
 
-const initialState = {
-  currentUser: null,
-  socket: null,
-  error: null,
-};
+export default function reducer (state, action) {
+  if (state === undefined) {
+    return initialState;
+  }
 
-export default function reducer(state = initialState, action = {}) {
-  return state;
+  switch (action.type) {
+    case 'ADD_TASK':
+      var new_state = {};
+      new_state = Object.assign (
+        {},
+        state,
+        {top500: action.articles}
+      )
+      return new_state;
+    default:
+      return state;
+  }
 }
