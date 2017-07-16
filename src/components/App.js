@@ -4,9 +4,13 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
 import { DragDropContext } from 'react-dnd';
+import { Provider } from 'react-redux';
+import store from '../store.js';
+import database from '../fire.js'
 
 import Todo from './todo.jsx';
 import {indigo500, indigo100, indigo900, grey500, grey700, white} from 'material-ui/styles/colors';
+
 // import Contacts from './todo.jsx'
 
 //import {auth} from './firebase';
@@ -31,11 +35,13 @@ const muiTheme = getMuiTheme({
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <Todo/>
-        </div>
-      </MuiThemeProvider>
+      <Provider store={store}>
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <div>
+            <Todo/>
+          </div>
+        </MuiThemeProvider>
+      </Provider>
     );
   }
 }

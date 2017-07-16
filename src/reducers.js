@@ -1,5 +1,7 @@
 
-var initialState = {};
+var initialState = {
+  tasks: []
+};
 
 export default function reducer (state, action) {
   if (state === undefined) {
@@ -7,6 +9,12 @@ export default function reducer (state, action) {
   }
 
   switch (action.type) {
+    case 'API_CALL':
+      return Object.assign (
+        {},
+        state,
+        {tasks: action.tasks}
+      );
     case 'ADD_TASK':
       var new_state = {};
       new_state = Object.assign (

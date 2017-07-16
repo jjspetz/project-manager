@@ -20,10 +20,6 @@ class Todo extends Component {
     super(props);
     this.state = {
       open: false,
-      tasks: [{
-                name: 'eat',
-                column: 'Uncompleted'
-              }]
     };
   }
 
@@ -33,11 +29,6 @@ class Todo extends Component {
 
   handleNavClose = () => this.setState({open: false});
 
-  addTask = () => {
-    this.state.tasks.push({name: 'example', column: 'Uncompleted'});
-    console.log(this.state.tasks);
-    this.setState({tasks: this.state.tasks});
-  }
 
   render() {
     return (
@@ -45,7 +36,7 @@ class Todo extends Component {
         <AppBar
           title="TODO APP"
           onLeftIconButtonTouchTap={this.handleToggle}
-          iconElementRight={<FlatButton label="+ Add Column" />}
+          iconElementRight={<FlatButton label="+ Add Column" disabled={true}/>}
         />
         <Drawer
           docked={false}
@@ -62,9 +53,9 @@ class Todo extends Component {
           <MenuItem onTouchTap={this.handleClose}>placeholder</MenuItem>
         </Drawer>
         <div className='flex-container'>
-          <Column title='Uncompleted' tasks={this.state.tasks} />
-          <Column title='In Progress' tasks={this.state.tasks} />
-          <Column title='Completed' tasks={this.state.tasks} />
+          <Column title='Uncompleted'/>
+          <Column title='In Progress'/>
+          <Column title='Completed'/>
         </div>
         <RaisedButton
           className='delete'

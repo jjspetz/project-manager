@@ -1,0 +1,10 @@
+{
+  "DigitalCrafts": [
+    {"task": "eat",
+    "column": "Uncompleted"},
+    {"task": "sleep",
+    "column": "Uncompleted"},
+    {"task": "code",
+    "column": "In Progress"}
+  ]
+}

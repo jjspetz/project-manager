@@ -4,23 +4,16 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentMinus from 'material-ui/svg-icons/content/remove';
 import Task from './task';
+import {connect} from 'react-redux';
 
 class Column extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false,
-      tasks: props.tasks,
-      val: ''
-    };
-  }
 
   openInput = () => this.setState({open: true});
   closeInput = () => this.setState({open: false});
 
   addTask = (event) => {
     this.closeInput();
-    this.state.tasks.push({name: this.state.val, column: this.props.title});
+    this.state.tasks.push({task: this.state.val, column: this.props.title});
     console.log(this.state.tasks);
     this.setState({tasks: 'works'});
     event.preventDefault();
@@ -35,10 +28,10 @@ class Column extends Component {
       <Card className='card'>
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
-          {this.props.tasks.map((task) =>
-            task.column === this.props.title ?
-            <Task task={task.name} />
-            : null)}
+        {this.props.tasks.map((task) =>
+          task.column === this.props.title ?
+          <Task task={task.task} />
+          : null)}
         </ol>
         <FloatingActionButton mini={true} className='minus button'>
           <ContentMinus />
@@ -47,7 +40,7 @@ class Column extends Component {
           <ContentAdd />
         </FloatingActionButton>
 
-        {this.state.open ?
+        {this.props.open ?
         <form className='input' onSubmit={event => this.addTask(event)}>
           <input type='text'
             value={this.state.val}
@@ -61,4 +54,13 @@ class Column extends Component {
   }
 }
 
-export default Column
+function mapStateToProps(state) {
+  console.log(state.tasks);
+  return {
+    tasks: state.tasks,
+    open: false,
+    val: ''
+  };
+}
+
+export default connect(mapStateToProps)(Column)
