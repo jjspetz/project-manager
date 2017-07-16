@@ -10,17 +10,24 @@ class Column extends Component {
     super(props);
     this.state = {
       open: false,
-      tasks: props.tasks
+      tasks: props.tasks,
+      val: ''
     };
   }
 
   openInput = () => this.setState({open: true});
   closeInput = () => this.setState({open: false});
 
-  addTask = () => {
-    this.state.tasks.push({name: this.state.val, column: this.state.title});
+  addTask = (event) => {
+    this.closeInput();
+    this.state.tasks.push({name: this.state.val, column: this.props.title});
     console.log(this.state.tasks);
     this.setState({tasks: 'works'});
+    event.preventDefault();
+  }
+
+  add(event, key) {
+    this.setState({[key]: event.target.value})
   }
 
   render() {
@@ -28,7 +35,7 @@ class Column extends Component {
       <Card className='card'>
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
-          {this.state.tasks.map((task) =>
+          {this.props.tasks.map((task) =>
             task.column === this.props.title ?
             <Task task={task.name} />
             : null)}
@@ -41,9 +48,11 @@ class Column extends Component {
         </FloatingActionButton>
 
         {this.state.open ?
-        <form className='input'>
-          <input type='text' value={this.state.val} />
-          <input type='submit' value='Submit' onTouchTap={this.addTask} />
+        <form className='input' onSubmit={event => this.addTask(event)}>
+          <input type='text'
+            value={this.state.val}
+            onChange={event => this.add(event, 'val')} />
+          <input type='submit' value='Submit'/>
         </form>
         : null}
 
