@@ -20,9 +20,9 @@ const muiTheme = getMuiTheme({
   palette: {
     primary1Color: indigo500,
     primary2Color: indigo100,
-    primary3Color: indigo900,
-    accent1Color: grey500,
-    accent2Color: grey700,
+    accent1Color: indigo900,
+    accent2Color: grey500,
+    accent3Color: grey700,
     alternateTextColor: white,
     labelColor: white,
   }
