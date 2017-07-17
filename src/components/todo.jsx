@@ -9,6 +9,9 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
 
+import {connect} from 'react-redux';
+import {toggleSidebar} from '../actions';
+import {bindActionCreators} from 'redux';
 import Column from './column';
 import './todo.css';
 
@@ -18,17 +21,11 @@ import './todo.css';
 class Todo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      open: false,
-    };
   }
 
-  handleToggle = () => this.setState({open: !this.state.open});
+  handleToggle = () => this.props.toggleSidebar(!this.props.openSidebar);
 
-  handleClose = () => this.setState({open: false});
-
-  handleNavClose = () => this.setState({open: false});
-
+  handleClose = () => console.log('change later');
 
   render() {
     return (
@@ -41,12 +38,12 @@ class Todo extends Component {
         <Drawer
           docked={false}
           width={250}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
+          open={this.props.openSidebar}
+          onRequestChange={this.handleToggle}
         >
           <AppBar
             title="Projects"
-            onLeftIconButtonTouchTap={this.handleNavClose}
+            onLeftIconButtonTouchTap={this.handleToggle}
             iconElementLeft={<IconButton><NavigationClose /></IconButton>}
           />
           <MenuItem onTouchTap={this.handleClose}>+ New Project</MenuItem>
@@ -68,4 +65,17 @@ class Todo extends Component {
   };
 }
 
-export default Todo;
+function mapStateToProps(state) {
+  console.log(state.openSideBar);
+  return {
+    openSidebar: state.openSidebar
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {toggleSidebar: toggleSidebar}, dispatch
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);

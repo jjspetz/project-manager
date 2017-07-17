@@ -10,7 +10,7 @@
 var initialState = {
   tasks: [],
   openInput: false,
-  openDrawer: false
+  openSidebar: false
 };
 
 export default function reducer (state, action) {
@@ -31,6 +31,12 @@ export default function reducer (state, action) {
         state,
         {openInput: action.open}
       );
+      case 'TOGGLE_SIDEBAR':
+        return Object.assign (
+          {},
+          state,
+          {openSidebar: action.open}
+        );
     default:
       return state;
   }

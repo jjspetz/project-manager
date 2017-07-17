@@ -11,3 +11,10 @@ export function toggleInput(data) {
     open: data
   }
 }
+
+export function toggleSidebar(data) {
+  return {
+    type: 'TOGGLE_SIDEBAR',
+    open: data
+  }
+}
