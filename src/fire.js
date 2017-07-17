@@ -40,7 +40,7 @@ export function auth () {
             if (user) {
                 User.user = user;
                 database.ref('users/' + user.uid)
-                  .once('value').then(function(tasks) {
+                  .on('value', function(tasks) {
                     store.dispatch(apiCall(tasks.val()))
                   })
             }
