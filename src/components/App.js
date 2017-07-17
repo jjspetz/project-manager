@@ -6,7 +6,6 @@ import { default as TouchBackend } from 'react-dnd-touch-backend';
 import { DragDropContext } from 'react-dnd';
 import { Provider } from 'react-redux';
 import store from '../store.js';
-import database from '../fire.js'
 
 import Todo from './todo.jsx';
 import {indigo500, indigo100, indigo900, grey500, grey700, white} from 'material-ui/styles/colors';

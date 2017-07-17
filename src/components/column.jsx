@@ -7,7 +7,7 @@ import Task from './task';
 import {connect} from 'react-redux';
 import {toggleInput} from '../actions';
 import {bindActionCreators} from 'redux';
-import database from '../fire.js'
+import database, {User} from '../fire.js'
 
 class Column extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Column extends Component {
   }
 
   addTask = (event) => {
-    database.ref('DigitalCrafts').push({
+    database.ref('users/' + User.user.uid).push({
       column: this.props.title,
       task: this.state.val
     });

@@ -14,11 +14,21 @@ import {toggleSidebar} from '../actions';
 import {bindActionCreators} from 'redux';
 import Column from './column';
 import './todo.css';
+import database, {auth} from '../fire.js';
 
 
 // add drop functions (basic script won't work)
 
 class Todo extends Component {
+  login () {
+  auth()
+    .then(function (user) {
+      console.log(user)
+    })
+    .catch(function (e) {
+      console.log(e);
+    });
+  }
 
   handleToggle = () => this.props.toggleSidebar(!this.props.openSidebar);
 
@@ -30,7 +40,7 @@ class Todo extends Component {
         <AppBar
           title="TODO APP"
           onLeftIconButtonTouchTap={this.handleToggle}
-          iconElementRight={<FlatButton label="+ Add Column" disabled={true}/>}
+          iconElementRight={<FlatButton label="Login" onTouchTap={(event)=> this.login()}/>}
         />
         <Drawer
           docked={false}
@@ -70,7 +80,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {toggleSidebar: toggleSidebar}, dispatch
+    {
+      toggleSidebar: toggleSidebar,
+    }, dispatch
   )
 }
 

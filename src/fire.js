@@ -14,9 +14,36 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-database.ref('DigitalCrafts')
-  .on('value', function(tasks) {
-    store.dispatch(apiCall(tasks.val()))
-  })
+//sign-in authentication with google, check which providers are used via authentication > sign in method on firebase
+export var User = {};
+export function auth () {
+    return new Promise(function (resolve, reject) {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider)
+            .then(function (result) {
+                User.user = result.user;
+                resolve(User);
+
+                database.ref('users/' + User.user.uid)
+                  .on('value', function(tasks) {
+                    store.dispatch(apiCall(tasks.val()))
+                  })
+              })
+            .catch(function(err) {
+              reject(err);
+            })
+      })
+    }
+
+    firebase.auth()
+        .onAuthStateChanged(function(user) {
+            if (user) {
+                User.user = user;
+                database.ref('users/' + user.uid)
+                  .once('value').then(function(tasks) {
+                    store.dispatch(apiCall(tasks.val()))
+                  })
+            }
+        });
 
 export default database;
