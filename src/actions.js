@@ -5,16 +5,9 @@ export function apiCall(data) {
   }
 }
 
-export function addTask(data) {
+export function toggleInput(data) {
   return {
-    type: 'ADD_TASK',
-    tasks: data
-  }
-}
-
-export function removeTask(data) {
-  return {
-    type: 'REMOVE_TASK',
-    tasks: data
+    type: 'TOGGLE_INPUT',
+    open: data
   }
 }

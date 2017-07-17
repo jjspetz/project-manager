@@ -5,7 +5,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentMinus from 'material-ui/svg-icons/content/remove';
 import Task from './task';
 import {connect} from 'react-redux';
-import {addTask} from '../actions';
+import {toggleInput} from '../actions';
 import {bindActionCreators} from 'redux';
 import database from '../fire.js'
 
@@ -18,8 +18,9 @@ class Column extends Component {
     };
   }
 
-  openInput = () => this.setState({open: true});
-  closeInput = () => this.setState({open: false});
+  toggleInput = () => {
+    this.props.toggleInput(!this.props.openInput);
+  }
 
   addTask = (event) => {
     this.closeInput();
@@ -47,11 +48,11 @@ class Column extends Component {
         <FloatingActionButton mini={true} className='minus button'>
           <ContentMinus />
         </FloatingActionButton>
-        <FloatingActionButton onTouchTap={this.openInput} mini={true} className='add button'>
+        <FloatingActionButton onTouchTap={this.toggleInput} mini={true} className='add button'>
           <ContentAdd />
         </FloatingActionButton>
 
-        {this.state.open ?
+        {this.props.openInput ?
         <form className='input' onSubmit={event => this.addTask(event)}>
           <input type='text'
             value={this.state.val}
@@ -66,17 +67,17 @@ class Column extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.tasks);
+  console.log(state.openInput);
   return {
     tasks: state.tasks,
-    open: false,
+    openInput: state.openInput,
     val: ''
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {addTask: addTask}, dispatch
+    {toggleInput: toggleInput}, dispatch
   )
 }
 

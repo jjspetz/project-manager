@@ -8,7 +8,9 @@
 // }
 
 var initialState = {
-  tasks: []
+  tasks: [],
+  openInput: false,
+  openDrawer: false
 };
 
 export default function reducer (state, action) {
@@ -23,17 +25,11 @@ export default function reducer (state, action) {
         state,
         {tasks: action.tasks}
       );
-    case 'ADD_TASK':
+    case 'TOGGLE_INPUT':
       return Object.assign (
         {},
         state,
-        {tasks: state.tasks.concat(action.tasks)}
-      );
-    case 'REMOVE_TASK':
-      return Object.assign (
-        {},
-        state,
-        {tasks: action.tasks}
+        {openInput: action.open}
       );
     default:
       return state;

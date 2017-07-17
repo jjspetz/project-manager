@@ -18,9 +18,5 @@ database.ref('DigitalCrafts')
   .on('value', function(tasks) {
     store.dispatch(apiCall(tasks.val()))
   })
-// database.ref('DigitalCrafts').push({
-//   column: 'In Progress',
-//   task: 'read docs'
-// });
 
 export default database;
