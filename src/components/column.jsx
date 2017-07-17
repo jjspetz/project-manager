@@ -7,6 +7,7 @@ import Task from './task';
 import {connect} from 'react-redux';
 import {addTask} from '../actions';
 import {bindActionCreators} from 'redux';
+import database from '../fire.js'
 
 class Column extends Component {
   constructor(props) {
@@ -22,7 +23,10 @@ class Column extends Component {
 
   addTask = (event) => {
     this.closeInput();
-    this.props.addTask({task: this.state.val, column: this.props.title});
+    database.ref('DigitalCrafts').push({
+      column: this.props.title,
+      task: this.state.val
+    });
     event.preventDefault();
   }
 
@@ -35,7 +39,7 @@ class Column extends Component {
       <Card className='card'>
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
-        {this.props.tasks.map((task) =>
+        {Object.values(this.props.tasks).map((task) =>
           task.column === this.props.title ?
           <Task task={task.task} />
           : null)}
