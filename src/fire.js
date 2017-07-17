@@ -15,7 +15,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 database.ref('DigitalCrafts')
-  .on('value', function(tasks) {
+  .once('value').then(function(tasks) {
     store.dispatch(apiCall(tasks.val()))
   })
 

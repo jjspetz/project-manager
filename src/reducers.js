@@ -1,6 +1,14 @@
 
+var getLocal = () => {
+  let tasks = [];
+  Object.keys(localStorage).forEach((key) => {
+    tasks.push(JSON.parse(localStorage[key]))
+  });
+  return tasks;
+}
+
 var initialState = {
-  tasks: []
+  tasks: getLocal()
 };
 
 export default function reducer (state, action) {
@@ -23,6 +31,12 @@ export default function reducer (state, action) {
         {top500: action.articles}
       )
       return new_state;
+    case 'REMOVE_TASK':
+      return Object.assign (
+        {},
+        state,
+        {tasks: action.tasks}
+      );
     default:
       return state;
   }

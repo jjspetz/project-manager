@@ -61,6 +61,7 @@ class Todo extends Component {
           className='delete'
           icon={<Delete/>}
           primary={true}
+          disabled={true}
         />
       </div>
     )
