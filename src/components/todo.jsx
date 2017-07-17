@@ -19,9 +19,6 @@ import './todo.css';
 // add drop functions (basic script won't work)
 
 class Todo extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleToggle = () => this.props.toggleSidebar(!this.props.openSidebar);
 
@@ -50,9 +47,9 @@ class Todo extends Component {
           <MenuItem onTouchTap={this.handleClose}>placeholder</MenuItem>
         </Drawer>
         <div className='flex-container'>
-          <Column title='Uncompleted'/>
-          <Column title='In Progress'/>
-          <Column title='Completed'/>
+          <Column key='Uncompleted' title='Uncompleted'/>
+          <Column key='In Progress' title='In Progress'/>
+          <Column key='Completed' title='Completed'/>
         </div>
         <RaisedButton
           className='delete'
@@ -66,7 +63,6 @@ class Todo extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.openSideBar);
   return {
     openSidebar: state.openSidebar
   };

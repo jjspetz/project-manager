@@ -18,11 +18,10 @@ class Column extends Component {
   }
 
   toggleInput = () => {
-    this.props.toggleInput(!this.props.openInput);
+    this.props.toggleInput(this.props.openInput === this.props.title ? '' : this.props.title);
   }
 
   addTask = (event) => {
-    this.closeInput();
     database.ref('DigitalCrafts').push({
       column: this.props.title,
       task: this.state.val
@@ -31,8 +30,8 @@ class Column extends Component {
   }
 
   add(event, key) {
-    this.setState({[key]: event.target.value})
-  }
+      this.setState({[key]: event.target.value})
+    }
 
   render() {
     return (
@@ -51,7 +50,7 @@ class Column extends Component {
           <ContentAdd />
         </FloatingActionButton>
 
-        {this.props.openInput ?
+        {this.props.openInput === this.props.title ?
         <form className='input' onSubmit={event => this.addTask(event)}>
           <input type='text'
             value={this.state.val}
@@ -66,17 +65,17 @@ class Column extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.openInput);
   return {
     tasks: state.tasks,
     openInput: state.openInput,
-    val: ''
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    {toggleInput: toggleInput}, dispatch
+    {
+      toggleInput: toggleInput
+    }, dispatch
   )
 }
 

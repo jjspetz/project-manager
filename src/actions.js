@@ -12,6 +12,13 @@ export function toggleInput(data) {
   }
 }
 
+// export function updateInput(data) {
+//   return {
+//     type: 'UPDATE_INPUT',
+//     inputVal: data
+//   }
+// }
+
 export function toggleSidebar(data) {
   return {
     type: 'TOGGLE_SIDEBAR',
