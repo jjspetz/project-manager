@@ -5,17 +5,24 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentMinus from 'material-ui/svg-icons/content/remove';
 import Task from './task';
 import {connect} from 'react-redux';
+import {addTask} from '../actions';
+import {bindActionCreators} from 'redux';
 
 class Column extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      val: ''
+    };
+  }
 
   openInput = () => this.setState({open: true});
   closeInput = () => this.setState({open: false});
 
   addTask = (event) => {
     this.closeInput();
-    this.state.tasks.push({task: this.state.val, column: this.props.title});
-    console.log(this.state.tasks);
-    this.setState({tasks: 'works'});
+    this.props.addTask({task: this.state.val, column: this.props.title});
     event.preventDefault();
   }
 
@@ -40,7 +47,7 @@ class Column extends Component {
           <ContentAdd />
         </FloatingActionButton>
 
-        {this.props.open ?
+        {this.state.open ?
         <form className='input' onSubmit={event => this.addTask(event)}>
           <input type='text'
             value={this.state.val}
@@ -63,4 +70,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Column)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {addTask: addTask}, dispatch
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Column)
