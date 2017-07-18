@@ -2,10 +2,8 @@
 // material ui
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
 // react and redux
@@ -16,6 +14,7 @@ import {bindActionCreators} from 'redux';
 import Column from './column';
 import './todo.css';
 import database, {auth} from '../fire.js';
+import DeleteArea from './deleteArea'
 
 // add drop functions (basic script won't work)
 
@@ -61,12 +60,7 @@ class Todo extends Component {
           <Column key='In Progress' title='In Progress'/>
           <Column key='Completed' title='Completed'/>
         </div>
-        <RaisedButton
-          className='delete'
-          icon={<Delete/>}
-          primary={true}
-          disabled={true}
-        />
+        <DeleteArea />
       </div>
     )
   };

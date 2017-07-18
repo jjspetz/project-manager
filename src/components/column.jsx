@@ -15,15 +15,11 @@ import { DropTarget } from 'react-dnd';
 
 const dropTask = {
   drop(props, monitor, connect) {
-    console.log(monitor.getItem().id)
-    console.log(connect.props.title)
-    // adds new entry to data base
+    // rewrites db entry to now render in the new container
     database.ref('users/' + User.user.uid).child(monitor.getItem().id).set({
       column: connect.props.title,
       task: monitor.getItem().id
     });
-    // deletes old entry
-
   }
 };
 
