@@ -31,7 +31,6 @@ class Sidebar extends Component {
 
   handleProjectClick = (value) => {
     this.props.setCurrentProject(value);
-    console.log(value)
   }
 
   addProject = (event) => {

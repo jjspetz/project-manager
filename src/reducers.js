@@ -13,7 +13,8 @@ var initialState = {
   openSidebar: false,
   openNewProject: false,
   inputVal: '',
-  projects: null
+  projects: null,
+  currentProject: 'default',
 };
 
 export default function reducer (state, action) {
