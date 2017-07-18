@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import { default as TouchBackend } from 'react-dnd-touch-backend';

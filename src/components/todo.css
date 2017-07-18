@@ -13,7 +13,7 @@
   margin-right: 20px;
   flex: 1 1 auto;
   text-align: center;
-  min-height: 50vh;
+  min-height: 40vh;
 }
 .card:first-child {
   margin-left: 20px;
@@ -32,7 +32,7 @@ li:hover {
   background: #ccc;
 }
 .add {
-  right: 4%;
+  right: 3%;
   position: absolute;
   bottom: 3%;
 }
@@ -40,3 +40,6 @@ li:hover {
   margin: 1% 25%;
   width: 50%;
 }
+/*.input {
+  float: left;
+}*/

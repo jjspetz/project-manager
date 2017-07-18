@@ -11,7 +11,9 @@ var initialState = {
   tasks: null,
   openInput: '',
   openSidebar: false,
-  inputVal: ''
+  openNewProject: false,
+  inputVal: '',
+  projects: null
 };
 
 export default function reducer (state, action) {
@@ -24,7 +26,10 @@ export default function reducer (state, action) {
       return Object.assign (
         {},
         state,
-        {tasks: action.tasks}
+        {
+          tasks: action.tasks,
+          projects: action.projects
+        }
       );
     case 'TOGGLE_INPUT':
       return Object.assign (
@@ -44,6 +49,18 @@ export default function reducer (state, action) {
           state,
           {openSidebar: action.open}
         );
+        case 'TOGGLE_PROJECT':
+          return Object.assign (
+            {},
+            state,
+            {openNewProject: action.open}
+          );
+          case 'CHANGE_PROJECT':
+            return Object.assign (
+              {},
+              state,
+              {currentProject: action.project}
+            );
     default:
       return state;
   }

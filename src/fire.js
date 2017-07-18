@@ -25,8 +25,8 @@ export function auth () {
                 resolve(User);
 
                 database.ref('users/' + User.user.uid)
-                  .on('value', function(tasks) {
-                    store.dispatch(apiCall(tasks.val()))
+                  .on('value', function(data) {
+                    store.dispatch(apiCall(data.val()));
                   })
               })
             .catch(function(err) {
@@ -40,8 +40,8 @@ export function auth () {
             if (user) {
                 User.user = user;
                 database.ref('users/' + user.uid)
-                  .on('value', function(tasks) {
-                    store.dispatch(apiCall(tasks.val()))
+                  .on('value', function(data) {
+                    store.dispatch(apiCall(data.val()))
                   })
             }
         });
