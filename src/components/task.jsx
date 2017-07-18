@@ -3,18 +3,6 @@ import PropTypes from 'prop-types';
 import { ItemTypes } from '../constants/constants.js';
 import { DragSource } from 'react-dnd';
 
-// class Task extends Component {
-//
-//   render() {
-//     return (
-//       <li key={this.props.task} draggable='true' >{this.props.task}</li>
-//     );
-//   }
-// }
-//
-// export default Task
-
-
 const taskSource = {
   beginDrag(props) {
     return {

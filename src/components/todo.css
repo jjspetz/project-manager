@@ -5,12 +5,13 @@
   display: flex;
   align-content: stretch;
   align-items: stretch;
+  flex: 1 1 auto;
 }
 
 .card {
   position: relative;
   margin-top: 1%;
-  margin-right: 20px;
+  margin-right: 2%;
   flex: 1 1 auto;
   text-align: center;
   min-height: 40vh;
@@ -40,6 +41,8 @@ li:hover {
   margin: 1% 25%;
   width: 50%;
 }
-/*.input {
-  float: left;
-}*/
+.cardInput {
+  left: 3%;
+  position: absolute;
+  bottom: 3%;
+}

@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import {Card, CardTitle} from 'material-ui/Card';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
 import Task from './task';
 import {connect} from 'react-redux';
 import {toggleInput} from '../actions';
@@ -19,7 +22,7 @@ const dropTask = {
     database.ref('users/' + User.user.uid).child(monitor.getItem().id).set({
       column: connect.props.title,
       task: monitor.getItem().id,
-      project: this.props.currentProject,
+      project: props.currentProject || {},
     });
   }
 };
@@ -64,7 +67,7 @@ class Column extends Component {
   render() {
     const { connectDropTarget} = this.props;
     return connectDropTarget(
-      <div className='card'>
+      <div className='flex-container'>
       <Card className='card'>
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
@@ -73,19 +76,23 @@ class Column extends Component {
           ? <Task key={task.task} task={task}/>
           : null) : null}
         </ol>
-        <FloatingActionButton onTouchTap={this.toggleInput} mini={true} className='add'>
-          <ContentAdd />
-        </FloatingActionButton>
+        <div className='lowerCard'>
+          <FloatingActionButton onTouchTap={this.toggleInput} mini={true} className='add'>
+            <ContentAdd />
+          </FloatingActionButton>
 
-        {this.props.openInput === this.props.title ?
-        <form className='input' onSubmit={event => this.addTask(event)}>
-          <input type='text'
-            value={this.state.val}
-            onChange={event => this.add(event, 'val')} />
-          <input type='submit' value='Submit'/>
-        </form>
-        : null}
-
+          {this.props.openInput === this.props.title ?
+          <form className='cardInput'>
+            <TextField
+              hintText="Enter a task"
+              value={this.state.val}
+              onChange={event => this.add(event, 'val')}
+            />
+            <RaisedButton label="Submit" primary={true}
+              onTouchTap={(event)=> this.addTask(event)}/>
+          </form>
+          : null}
+        </div>
       </Card>
       </div>
     );

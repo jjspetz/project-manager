@@ -4,6 +4,8 @@ import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // react and redux
 import React, { Component } from 'react';
@@ -31,6 +33,7 @@ class Sidebar extends Component {
 
   handleProjectClick = (value) => {
     this.props.setCurrentProject(value);
+    this.props.toggleSidebar(!this.props.openSidebar);
   }
 
   addProject = (event) => {
@@ -64,15 +67,16 @@ class Sidebar extends Component {
           />
           <MenuItem onTouchTap={this.handleNewProject}>+ New Project</MenuItem>
           {this.props.openNewProject ?
-          <form className='input' onSubmit={event => this.addProject(event)}>
-            <input type='text'
-              value={this.state.name}
-              onChange={event => this.add(event, 'name')}
-            />
+          <form className='sidebarInput' onSubmit={event => this.addProject(event)}>
+          <TextField
+            hintText="Enter a project"
+            value={this.state.val}
+            onChange={event => this.add(event, 'val')}
+          />
             <input type='submit' value='Submit'/>
           </form>
           : null}
-          <MenuItem onTouchTap={() => this.handleProjectClick('default')}>default</MenuItem>
+          <MenuItem onTouchTap={() => this.handleProjectClick(undefined)}>default</MenuItem>
           {this.props.projects ? Object.values(this.props.projects).map((project) =>
             <MenuItem key={project.name} onTouchTap={() => this.handleProjectClick(project.name)}>
               {project.name}

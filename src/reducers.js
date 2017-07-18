@@ -14,7 +14,7 @@ var initialState = {
   openNewProject: false,
   inputVal: '',
   projects: null,
-  currentProject: 'default',
+  currentProject: undefined,
 };
 
 export default function reducer (state, action) {
