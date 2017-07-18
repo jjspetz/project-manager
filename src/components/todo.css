@@ -1,0 +1,42 @@
+.mainDisplay {
+  width: 100%;
+}
+.flex-container {
+  display: flex;
+  align-content: stretch;
+  align-items: stretch;
+}
+
+.card {
+  position: relative;
+  margin-top: 1%;
+  margin-right: 20px;
+  flex: 1 1 auto;
+  text-align: center;
+  min-height: 50vh;
+}
+.card:first-child {
+  margin-left: 20px;
+}
+ol {
+  list-style-position: inside;
+  text-align: left;
+}
+
+li {
+  margin: 5px 0;
+  font-size: 20pt;
+  width: 90%;
+}
+li:hover {
+  background: #ccc;
+}
+.add {
+  right: 4%;
+  position: absolute;
+  bottom: 3%;
+}
+.delete {
+  margin: 1% 25%;
+  width: 50%;
+}
