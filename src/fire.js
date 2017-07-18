@@ -3,7 +3,8 @@ import * as firebase from "firebase";
 import {apiCall} from './actions';
 import store from './store';
 
-const state = store.getState();
+// add back when you have better data structure
+// const state = store.getState();
 
 var config = {
     apiKey: "AIzaSyDhYueN3n2PAGlk_ws11vk5yU1b61r-onQ",
@@ -26,7 +27,7 @@ export function auth () {
                 User.user = result.user;
                 resolve(User);
 
-                database.ref(`users/${User.user.uid}/${state.currentProject}`)
+                database.ref(`users/${User.user.uid}`)
                   .on('value', function(data) {
                     store.dispatch(apiCall(data.val()));
                   })
@@ -41,7 +42,7 @@ export function auth () {
         .onAuthStateChanged(function(user) {
             if (user) {
                 User.user = user;
-                database.ref(`users/${User.user.uid}/${state.currentProject}`)
+                database.ref(`users/${User.user.uid}`)
                   .on('value', function(data) {
                     store.dispatch(apiCall(data.val()))
                   })

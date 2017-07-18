@@ -18,7 +18,8 @@ const dropTask = {
     // rewrites db entry to now render in the new container
     database.ref('users/' + User.user.uid).child(monitor.getItem().id).set({
       column: connect.props.title,
-      task: monitor.getItem().id
+      task: monitor.getItem().id,
+      project: this.props.currentProject,
     });
   }
 };
@@ -46,7 +47,8 @@ class Column extends Component {
     // writes in database
     database.ref('users/' + User.user.uid).child(this.state.val).set({
       column: this.props.title,
-      task: this.state.val
+      task: this.state.val,
+      project: this.props.currentProject,
     });
     // closes input
     this.props.toggleInput('');
@@ -67,8 +69,8 @@ class Column extends Component {
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
         {this.props.tasks ? Object.values(this.props.tasks).map((task) =>
-          task.column === this.props.title ?
-          <Task key={task.task} task={task}/>
+          task.column === this.props.title && task.project === this.props.currentProject
+          ? <Task key={task.task} task={task}/>
           : null) : null}
         </ol>
         <FloatingActionButton onTouchTap={this.toggleInput} mini={true} className='add'>
@@ -94,6 +96,7 @@ function mapStateToProps(state) {
   return {
     tasks: state.tasks,
     openInput: state.openInput,
+    currentProject: state.currentProject,
   };
 }
 
