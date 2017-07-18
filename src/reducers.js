@@ -8,7 +8,7 @@
 // }
 
 var initialState = {
-  tasks: [],
+  tasks: null,
   openInput: '',
   openSidebar: false,
   inputVal: ''

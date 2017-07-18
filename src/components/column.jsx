@@ -14,8 +14,16 @@ import { ItemTypes } from '../constants/constants';
 import { DropTarget } from 'react-dnd';
 
 const dropTask = {
-  drop(props) {
-    // change column function or move function
+  drop(props, monitor, connect) {
+    console.log(monitor.getItem().id)
+    console.log(connect.props.title)
+    // adds new entry to data base
+    database.ref('users/' + User.user.uid).child(monitor.getItem().id).set({
+      column: connect.props.title,
+      task: monitor.getItem().id
+    });
+    // deletes old entry
+
   }
 };
 
@@ -39,7 +47,7 @@ class Column extends Component {
   }
 
   addTask = (event) => {
-    database.ref('users/' + User.user.uid).push({
+    database.ref('users/' + User.user.uid).child(this.state.val).set({
       column: this.props.title,
       task: this.state.val
     });
@@ -51,16 +59,16 @@ class Column extends Component {
     }
 
   render() {
-    const { connectDropTarget, isOver } = this.props;
-    // need to add connectDropTarget
-    return (
+    const { connectDropTarget} = this.props;
+    return connectDropTarget(
+      <div className='card'>
       <Card className='card'>
         <CardTitle title={this.props.title}/>
         <ol id={this.props.title}>
-        {Object.values(this.props.tasks).map((task) =>
+        {this.props.tasks ? Object.values(this.props.tasks).map((task) =>
           task.column === this.props.title ?
-          <Task task={task.task} />
-          : null)}
+          <Task key={task.task} task={task}/>
+          : null) : null}
         </ol>
         <FloatingActionButton mini={true} className='minus button'>
           <ContentMinus />
@@ -79,6 +87,7 @@ class Column extends Component {
         : null}
 
       </Card>
+      </div>
     );
   }
 }
@@ -99,7 +108,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 Column.propTypes = {
-  isOver: PropTypes.bool.isRequired
+  isOver: PropTypes.bool.isRequired,
+  place: PropTypes.number
 };
 
 Column = DropTarget(ItemTypes.TASK, dropTask, collect)(Column)

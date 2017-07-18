@@ -17,7 +17,10 @@ import { DragSource } from 'react-dnd';
 
 const taskSource = {
   beginDrag(props) {
-    return {};
+    return {
+      id: props.task.task,
+      column: props.task.column
+    };
   }
 };
 
@@ -32,11 +35,11 @@ class Task extends Component {
   render() {
     const { connectDragSource, isDragging } = this.props;
     return connectDragSource(
-      <li key={this.props.task} style={{
+      <li key={this.props.task.task} style={{
         opacity: isDragging ? 0.5 : 1,
         cursor: 'move'
       }}>
-        {this.props.task}
+        {this.props.task.task}
       </li>
     );
   }
