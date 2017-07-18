@@ -37,7 +37,7 @@ class Todo extends Component {
     return (
       <div className='mainDisplay'>
         <AppBar
-          title="TODO APP"
+          title="Project Manager"
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={<FlatButton label="Login" onTouchTap={(event)=> this.login()}/>}
         />
