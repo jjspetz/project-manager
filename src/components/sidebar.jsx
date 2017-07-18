@@ -67,13 +67,14 @@ class Sidebar extends Component {
           />
           <MenuItem onTouchTap={this.handleNewProject}>+ New Project</MenuItem>
           {this.props.openNewProject ?
-          <form className='sidebarInput' onSubmit={event => this.addProject(event)}>
+          <form className='sidebarInput'>
           <TextField
             hintText="Enter a project"
             value={this.state.val}
             onChange={event => this.add(event, 'val')}
           />
-            <input type='submit' value='Submit'/>
+          <RaisedButton label="Submit" primary={true}
+            onTouchTap={(event)=> this.addProject(event)}/>
           </form>
           : null}
           <MenuItem onTouchTap={() => this.handleProjectClick(undefined)}>default</MenuItem>

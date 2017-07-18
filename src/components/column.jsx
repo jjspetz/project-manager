@@ -51,7 +51,7 @@ class Column extends Component {
     database.ref('users/' + User.user.uid).child(this.state.val).set({
       column: this.props.title,
       task: this.state.val,
-      project: this.props.currentProject,
+      project: this.props.currentProject || {},
     });
     // closes input
     this.props.toggleInput('');
