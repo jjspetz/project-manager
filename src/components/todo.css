@@ -21,11 +21,12 @@
 .card ol {
   list-style-position: inside;
   text-align: left;
-  border: 2px dotted red;
   margin-bottom: 60px;
 }
 
 li {
+  border: 1px dotted red;
+  margin: 5px 0;
   font-size: 20pt;
 }
 .button {

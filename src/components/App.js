@@ -3,6 +3,7 @@ import './App.css';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { default as TouchBackend } from 'react-dnd-touch-backend';
+import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import { Provider } from 'react-redux';
 import store from '../store.js';
@@ -45,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default DragDropContext(HTML5Backend)(App);

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 
+// material ui
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -8,14 +8,14 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import Delete from 'material-ui/svg-icons/action/delete';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
-
+// react and redux
+import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {toggleSidebar} from '../actions';
 import {bindActionCreators} from 'redux';
 import Column from './column';
 import './todo.css';
 import database, {auth} from '../fire.js';
-
 
 // add drop functions (basic script won't work)
 

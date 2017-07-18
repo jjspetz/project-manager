@@ -8,6 +8,23 @@ import {connect} from 'react-redux';
 import {toggleInput} from '../actions';
 import {bindActionCreators} from 'redux';
 import database, {User} from '../fire.js'
+// react dnd
+import PropTypes from 'prop-types';
+import { ItemTypes } from '../constants/constants';
+import { DropTarget } from 'react-dnd';
+
+const dropTask = {
+  drop(props) {
+    // change column function or move function
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
 
 class Column extends Component {
   constructor(props) {
@@ -34,6 +51,8 @@ class Column extends Component {
     }
 
   render() {
+    const { connectDropTarget, isOver } = this.props;
+    // need to add connectDropTarget
     return (
       <Card className='card'>
         <CardTitle title={this.props.title}/>
@@ -79,4 +98,9 @@ function mapDispatchToProps(dispatch) {
   )
 }
 
+Column.propTypes = {
+  isOver: PropTypes.bool.isRequired
+};
+
+Column = DropTarget(ItemTypes.TASK, dropTask, collect)(Column)
 export default connect(mapStateToProps, mapDispatchToProps)(Column)
