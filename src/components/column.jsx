@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+// Material UI imports
 import {Card, CardTitle} from 'material-ui/Card';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import ContentMinus from 'material-ui/svg-icons/content/remove';
 import Task from './task';
 import {connect} from 'react-redux';
 import {toggleInput} from '../actions';
@@ -43,10 +43,15 @@ class Column extends Component {
   }
 
   addTask = (event) => {
+    // writes in database
     database.ref('users/' + User.user.uid).child(this.state.val).set({
       column: this.props.title,
       task: this.state.val
     });
+    // closes input
+    this.props.toggleInput('');
+    // resets input to blank string
+    this.setState({val: ''});
     event.preventDefault();
   }
 
@@ -66,10 +71,7 @@ class Column extends Component {
           <Task key={task.task} task={task}/>
           : null) : null}
         </ol>
-        <FloatingActionButton mini={true} className='minus button'>
-          <ContentMinus />
-        </FloatingActionButton>
-        <FloatingActionButton onTouchTap={this.toggleInput} mini={true} className='add button'>
+        <FloatingActionButton onTouchTap={this.toggleInput} mini={true} className='add'>
           <ContentAdd />
         </FloatingActionButton>
 

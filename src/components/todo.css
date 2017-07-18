@@ -9,37 +9,34 @@
 
 .card {
   position: relative;
-  margin-top: 25px;
+  margin-top: 1%;
   margin-right: 20px;
   flex: 1 1 auto;
   text-align: center;
-  min-height: 40vh;
+  min-height: 50vh;
 }
 .card:first-child {
   margin-left: 20px;
 }
-.card ol {
+ol {
   list-style-position: inside;
   text-align: left;
-  margin-bottom: 60px;
 }
 
 li {
-  border: 1px dotted red;
   margin: 5px 0;
   font-size: 20pt;
+  width: 90%;
 }
-.button {
-  position: absolute;
-  bottom: 12px;
+li:hover {
+  background: #ccc;
 }
 .add {
-  right: 25px;
-}
-.minus {
-  left: 25px;
+  right: 4%;
+  position: absolute;
+  bottom: 3%;
 }
 .delete {
-  margin: 25px 25%;
+  margin: 1% 25%;
   width: 50%;
 }
