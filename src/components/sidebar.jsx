@@ -31,9 +31,11 @@ class Sidebar extends Component {
     this.props.toggleProjectInput(!this.props.openNewProject);
   }
 
-  handleProjectClick = (value) => {
-    this.props.setCurrentProject(value);
-    this.props.toggleSidebar(!this.props.openSidebar);
+  handleProjectClick = (event, value) => {
+    if (event === undefined || event.target.tagName === 'DIV') {
+      this.props.setCurrentProject(value);
+      this.props.toggleSidebar(!this.props.openSidebar);
+    }
   }
 
   addProject = (event) => {
@@ -46,6 +48,12 @@ class Sidebar extends Component {
     // resets input to blank string
     this.setState({name: ''});
     event.preventDefault();
+  }
+
+  deleteProject = (event, value) => {
+    if (event.target.tagName === 'path' || event.target.tagName === 'svg') {
+      database.ref('users/' + User.user.uid + '/projects').child(value).remove();
+    }
   }
 
   add(event, key) {
@@ -79,9 +87,11 @@ class Sidebar extends Component {
           : null}
           <MenuItem onTouchTap={() => this.handleProjectClick(undefined)}>default</MenuItem>
           {this.props.projects ? Object.values(this.props.projects).map((project) =>
-            <MenuItem key={project.name} onTouchTap={() => this.handleProjectClick(project.name)}>
-              <IconButton><NavigationClose /></IconButton>
-              {project.name} 
+            <MenuItem key={project.name} onTouchTap={(event) => this.handleProjectClick(event, project.name)}>
+              <IconButton onTouchTap={(event) => this.deleteProject(event, project.name)}>
+                <NavigationClose />
+              </IconButton>
+              {project.name}
             </MenuItem>) : null}
         </Drawer>
     )
