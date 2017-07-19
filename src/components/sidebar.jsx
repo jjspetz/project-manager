@@ -39,14 +39,16 @@ class Sidebar extends Component {
   }
 
   addProject = (event) => {
-    // writes in database
-    database.ref('users/' + User.user.uid + '/projects').child(this.state.name).set({
-      name: this.state.name
-    });
-    // closes input
-    this.props.toggleProjectInput(!this.props.openNewProject);
-    // resets input to blank string
-    this.setState({name: ''});
+    if (this.state.name) {
+      // writes in database
+      database.ref('users/' + User.user.uid + '/projects').child(this.state.name).set({
+        name: this.state.name
+      });
+      // closes input
+      this.props.toggleProjectInput(!this.props.openNewProject);
+      // resets input to blank string
+      this.setState({name: ''});
+    }
     event.preventDefault();
   }
 

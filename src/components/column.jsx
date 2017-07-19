@@ -47,16 +47,19 @@ class Column extends Component {
   }
 
   addTask = (event) => {
-    // writes in database
-    database.ref('users/' + User.user.uid).child(this.state.val).set({
-      column: this.props.title,
-      task: this.state.val,
-      project: this.props.currentProject || {},
-    });
-    // closes input
-    this.props.toggleInput('');
-    // resets input to blank string
-    this.setState({val: ''});
+    // checks to make sure the user wrote something
+    if (this.state.val) {
+      // writes in database
+      database.ref('users/' + User.user.uid).child(this.state.val).set({
+        column: this.props.title,
+        task: this.state.val,
+        project: this.props.currentProject || {},
+      });
+      // closes input
+      this.props.toggleInput('');
+      // resets input to blank string
+      this.setState({val: ''});
+    }
     event.preventDefault();
   }
 

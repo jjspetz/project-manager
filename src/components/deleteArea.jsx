@@ -10,7 +10,6 @@ import database, {User} from '../fire.js'
 
 const deleteTask = {
   drop(props, monitor, connect) {
-    console.log(monitor.getItem().id);
     database.ref('users/' + User.user.uid).child(monitor.getItem().id).remove();
   }
 };
