@@ -38,30 +38,30 @@ export default function reducer (state, action) {
         state,
         {openInput: action.open}
       );
-      // case 'INPUT_UPDATE':
-      //   return Object.assign (
-      //     {},
-      //     state,
-      //     {inputVal: action.inputVal}
-      //   );
-      case 'TOGGLE_SIDEBAR':
-        return Object.assign (
-          {},
-          state,
-          {openSidebar: action.open}
-        );
-        case 'TOGGLE_PROJECT':
-          return Object.assign (
-            {},
-            state,
-            {openNewProject: action.open}
-          );
-          case 'CHANGE_PROJECT':
-            return Object.assign (
-              {},
-              state,
-              {currentProject: action.project}
-            );
+    // case 'INPUT_UPDATE':
+    //   return Object.assign (
+    //     {},
+    //     state,
+    //     {inputVal: action.inputVal}
+    //   );  
+    case 'TOGGLE_SIDEBAR':
+      return Object.assign (
+        {},
+        state,
+        {openSidebar: action.open}
+      );
+    case 'TOGGLE_PROJECT':
+      return Object.assign (
+        {},
+        state,
+        {openNewProject: action.open}
+      );
+    case 'CHANGE_PROJECT':
+      return Object.assign (
+        {},
+        state,
+        {currentProject: action.project}
+      );
     default:
       return state;
   }
