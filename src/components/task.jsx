@@ -1,8 +1,15 @@
+/*
+*  A React component That is a child of column.jsx.
+*   It redners the <li> that holds the task information and sets them  up to
+*   be dragable.
+*/
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ItemTypes } from '../constants/constants.js';
 import { DragSource } from 'react-dnd';
 
+// puts important information into the element being dragged when it starts being dragged
 const taskSource = {
   beginDrag(props) {
     return {

@@ -17,11 +17,12 @@
   min-height: 40vh;
 }
 .card:first-child {
-  margin-left: 20px;
+  margin-left: 2%;
 }
-ol {
+.card ol {
   list-style-position: inside;
   text-align: left;
+  padding-bottom: 7%;
 }
 
 li {

@@ -1,24 +1,30 @@
+/*
+*   This is the main React Container for my Project Manager App
+*/
+
+// react/redux imports
 import React, { Component } from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import { default as TouchBackend } from 'react-dnd-touch-backend';
-import HTML5Backend from 'react-dnd-html5-backend';
-import { DragDropContext } from 'react-dnd';
 import { Provider } from 'react-redux';
 import store from '../store.js';
-
 import Todo from './todo.jsx';
+
+// allows for draging and dropping in react
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+// import { default as TouchBackend } from 'react-dnd-touch-backend';
+
+// Matreial UI imports
 import {indigo500, indigo100, indigo900, grey500, grey700, white} from 'material-ui/styles/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// import Contacts from './todo.jsx'
-
-//import {auth} from './firebase';
-
+// allows you to click on things in react
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
+// sets the theme
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: indigo500,

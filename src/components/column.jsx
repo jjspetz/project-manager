@@ -16,6 +16,7 @@ import PropTypes from 'prop-types';
 import { ItemTypes } from '../constants/constants';
 import { DropTarget } from 'react-dnd';
 
+// tells the dragged element what to do when being dropped
 const dropTask = {
   drop(props, monitor, connect) {
     // rewrites db entry to now render in the new container
@@ -42,10 +43,12 @@ class Column extends Component {
     };
   }
 
+  // opens the input for each column
   toggleInput = () => {
     this.props.toggleInput(this.props.openInput === this.props.title ? '' : this.props.title);
   }
 
+  // allows user to add task to the colum via adding it to the database
   addTask = (event) => {
     // checks to make sure the user wrote something
     if (this.state.val) {
@@ -63,6 +66,7 @@ class Column extends Component {
     event.preventDefault();
   }
 
+  // displays the input typing in real time as user types
   add(event, key) {
       this.setState({[key]: event.target.value})
     }

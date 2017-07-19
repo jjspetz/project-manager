@@ -3,8 +3,6 @@ import * as firebase from "firebase";
 import {apiCall} from './actions';
 import store from './store';
 
-// add back when you have better data structure
-// const state = store.getState();
 
 var config = {
     apiKey: "AIzaSyDhYueN3n2PAGlk_ws11vk5yU1b61r-onQ",
@@ -17,7 +15,7 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-//sign-in authentication with google, check which providers are used via authentication > sign in method on firebase
+// sign-in authentication with google, check which providers are used via authentication > sign in method on firebase
 export var User = {};
 export function auth () {
     return new Promise(function (resolve, reject) {
@@ -27,6 +25,8 @@ export function auth () {
                 User.user = result.user;
                 resolve(User);
 
+                // dispatches all data from the data base on any change to redux
+                // which directs it to every conponent that needs it and re renders state
                 database.ref(`users/${User.user.uid}`)
                   .on('value', function(data) {
                     store.dispatch(apiCall(data.val()));
@@ -38,6 +38,7 @@ export function auth () {
       })
     }
 
+    // allows user to stay signed in even when leaving the page and auto resigns them in
     firebase.auth()
         .onAuthStateChanged(function(user) {
             if (user) {

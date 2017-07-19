@@ -8,6 +8,7 @@ import { DropTarget } from 'react-dnd';
 // firebase
 import database, {User} from '../fire.js'
 
+// deletes the dragged and drop task from the database on drop
 const deleteTask = {
   drop(props, monitor, connect) {
     database.ref('users/' + User.user.uid).child(monitor.getItem().id).remove();

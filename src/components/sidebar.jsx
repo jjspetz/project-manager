@@ -1,3 +1,9 @@
+/*
+*  A React component That is a child of todo.jsx.
+*   This is incharge of rendering the sidebar menu and handling the
+*   various functionality of said sidebar.
+*/
+
 // material ui
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -25,19 +31,25 @@ class Sidebar extends Component {
     };
   }
 
+  // sets the redux props which handles the closing of the sidbae menu
   handleToggle = () => this.props.toggleSidebar(!this.props.openSidebar);
 
+  // allows user to toggle the input open and close that handles the creation
+  // of new projects. This is linked through redux
   handleNewProject = () => {
     this.props.toggleProjectInput(!this.props.openNewProject);
   }
 
+  // sets project to this on click and closes sidebar menu
   handleProjectClick = (event, value) => {
+    // checks to make sure the click is meant for the menuitem not the nested delete button
     if (event === undefined || event.target.tagName === 'DIV') {
       this.props.setCurrentProject(value);
       this.props.toggleSidebar(!this.props.openSidebar);
     }
   }
 
+  // adds a new project to the database
   addProject = (event) => {
     if (this.state.name) {
       // writes in database
@@ -52,12 +64,15 @@ class Sidebar extends Component {
     event.preventDefault();
   }
 
+  // deletes a project from the database
   deleteProject = (event, value) => {
+    // makes sure click was on the nested delete button (not really necessary)
     if (event.target.tagName === 'path' || event.target.tagName === 'svg') {
       database.ref('users/' + User.user.uid + '/projects').child(value).remove();
     }
   }
 
+  // displays typing in the input in real time
   add(event, key) {
       this.setState({[key]: event.target.value})
     }

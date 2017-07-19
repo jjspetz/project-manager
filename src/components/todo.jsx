@@ -1,3 +1,7 @@
+/*
+*  A React component That is a child of App.js and a parent of column.jsx,
+*   sidebar.jsx, and deleteArea.jsx.
+*/
 
 // material ui
 import AppBar from 'material-ui/AppBar';
@@ -18,6 +22,7 @@ import DeleteArea from './deleteArea'
 
 
 class Todo extends Component {
+  // handles user logging in
   login () {
   auth()
     .then(function (user) {
@@ -28,6 +33,7 @@ class Todo extends Component {
     });
   }
 
+  // passes redux a prop to hande clicking to open the sidebar menu
   handleToggle = () => this.props.toggleSidebar(!this.props.openSidebar);
 
   render() {
