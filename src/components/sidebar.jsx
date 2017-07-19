@@ -42,7 +42,7 @@ class Sidebar extends Component {
       name: this.state.name
     });
     // closes input
-    this.props.toggleProject('');
+    this.props.toggleProjectInput(!this.props.openNewProject);
     // resets input to blank string
     this.setState({name: ''});
     event.preventDefault();
@@ -70,8 +70,8 @@ class Sidebar extends Component {
           <form className='sidebarInput'>
           <TextField
             hintText="Enter a project"
-            value={this.state.val}
-            onChange={event => this.add(event, 'val')}
+            value={this.state.name}
+            onChange={event => this.add(event, 'name')}
           />
           <RaisedButton label="Submit" primary={true}
             onTouchTap={(event)=> this.addProject(event)}/>
@@ -80,7 +80,8 @@ class Sidebar extends Component {
           <MenuItem onTouchTap={() => this.handleProjectClick(undefined)}>default</MenuItem>
           {this.props.projects ? Object.values(this.props.projects).map((project) =>
             <MenuItem key={project.name} onTouchTap={() => this.handleProjectClick(project.name)}>
-              {project.name}
+              <IconButton><NavigationClose /></IconButton>
+              {project.name} 
             </MenuItem>) : null}
         </Drawer>
     )
