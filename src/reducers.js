@@ -15,6 +15,9 @@ var initialState = {
   inputVal: '',
   projects: null,
   currentProject: undefined,
+  openPopover: false,
+  setProvider: 'Google',
+  anchorEl: null,
 };
 
 export default function reducer (state, action) {
@@ -31,37 +34,49 @@ export default function reducer (state, action) {
           tasks: action.tasks,
           projects: action.projects
         }
-      );
+    );
     case 'TOGGLE_INPUT':
       return Object.assign (
         {},
         state,
         {openInput: action.open}
-      );
+    );
     // case 'INPUT_UPDATE':
     //   return Object.assign (
     //     {},
     //     state,
     //     {inputVal: action.inputVal}
-    //   );  
+    //   );
     case 'TOGGLE_SIDEBAR':
       return Object.assign (
         {},
         state,
         {openSidebar: action.open}
-      );
+    );
     case 'TOGGLE_PROJECT':
       return Object.assign (
         {},
         state,
         {openNewProject: action.open}
-      );
+    );
     case 'CHANGE_PROJECT':
       return Object.assign (
         {},
         state,
         {currentProject: action.project}
-      );
+    );
+    case 'TOGGLE_DROP':
+      return Object.assign (
+        {},
+        state,
+        {openLogin: action.open}
+    );
+    case 'SET_ELEM':
+      return Object.assign (
+        {},
+        state,
+        {anchorEl: action.element}
+    );
     default:
       return state;
   }

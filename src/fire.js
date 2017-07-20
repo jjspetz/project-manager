@@ -15,12 +15,20 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
+var provider = {
+  google: new firebase.auth.GoogleAuthProvider(),
+  github: new firebase.auth.GithubAuthProvider(),
+  facebook: new firebase.auth.FacebookAuthProvider(),
+};
+
 // sign-in authentication with google, check which providers are used via authentication > sign in method on firebase
 export var User = {};
-export function auth () {
+export function auth (choice) {
     return new Promise(function (resolve, reject) {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider)
+      // changes go here
+
+        console.log(provider[choice])
+        firebase.auth().signInWithPopup(provider[choice])
             .then(function (result) {
                 User.user = result.user;
                 resolve(User);

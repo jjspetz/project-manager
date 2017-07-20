@@ -40,3 +40,23 @@ export function setCurrentProject(data) {
     project: data
   }
 }
+
+export function togglePopover(data) {
+  return {
+    type: 'TOGGLE_DROP',
+    open: data
+  }
+}
+export function setProvider(provider) {
+  return {
+    type: 'SET_PROVIDER',
+    provider: provider
+  }
+}
+
+export function setAnchorEl(element) {
+  return {
+    type: 'SET_ELEM',
+    element: element,
+  }
+}

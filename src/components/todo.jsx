@@ -10,27 +10,29 @@ import FlatButton from 'material-ui/FlatButton';
 // react and redux
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {toggleSidebar} from '../actions';
+import {toggleSidebar, togglePopover, setAnchorEl} from '../actions';
 import {bindActionCreators} from 'redux';
 
 import Sidebar from './sidebar';
 import Column from './column';
+import DropdownLogin from './login';
 import './todo.css';
-import {auth} from '../fire.js';
 import DeleteArea from './deleteArea'
 
 
 
 class Todo extends Component {
   // handles user logging in
-  login () {
-  auth()
-    .then(function (user) {
-      console.log(user)
-    })
-    .catch(function (e) {
-      console.log(e);
-    });
+  loginClick = (event) => {
+    this.props.togglePopover(!this.props.openLogin);
+    this.props.setAnchorEl(event.currentTarget);
+    // auth()
+    //   .then(function (user) {
+    //     console.log(user)
+    //   })
+    //   .catch(function (e) {
+    //     console.log(e);
+    //   });
   }
 
   // passes redux a prop to hande clicking to open the sidebar menu
@@ -42,9 +44,10 @@ class Todo extends Component {
         <AppBar
           title="Project Manager"
           onLeftIconButtonTouchTap={this.handleToggle}
-          iconElementRight={<FlatButton label="Login" onTouchTap={(event)=> this.login()}/>}
+          iconElementRight={<FlatButton label="Login" onTouchTap={(event)=> this.loginClick(event)}/>}
         />
         <Sidebar />
+        <DropdownLogin />
         <div className='flex-container'>
           <Column key='Uncompleted' title='Uncompleted'/>
           <Column key='In Progress' title='In Progress'/>
@@ -59,13 +62,16 @@ class Todo extends Component {
 function mapStateToProps(state) {
   return {
     openSidebar: state.openSidebar,
+    openLogin: state.openLogin,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      toggleSidebar: toggleSidebar,
+      toggleSidebar,
+      togglePopover,
+      setAnchorEl,
     }, dispatch
   )
 }
