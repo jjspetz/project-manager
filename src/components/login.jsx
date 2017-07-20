@@ -40,7 +40,6 @@ class DropdownLogin extends Component {
               <MenuItem primaryText="Google" onTouchTap={() => this.handleLoginChoice('google')}/>
               <MenuItem primaryText="Github" onTouchTap={() => this.handleLoginChoice('github')}/>
               <MenuItem primaryText="Facebook" onTouchTap={() => this.handleLoginChoice('facebook')}/>
-              <MenuItem primaryText="Sign out" />
             </Menu>
           </Popover>
       );
