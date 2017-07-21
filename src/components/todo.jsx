@@ -49,7 +49,7 @@ class Todo extends Component {
         <DeleteArea />
         <div className='info'>
           <div>
-            Current Project: {this.props.currentProject ? this.props.currentProject : 'default'}
+            Project: {this.props.currentProject ? this.props.currentProject : 'default'}
           </div>
           <div>
             version: 0.2.1
