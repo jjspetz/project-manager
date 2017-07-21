@@ -26,13 +26,6 @@ class Todo extends Component {
   loginClick = (event) => {
     this.props.togglePopover(!this.props.openLogin);
     this.props.setAnchorEl(event.currentTarget);
-    // auth()
-    //   .then(function (user) {
-    //     console.log(user)
-    //   })
-    //   .catch(function (e) {
-    //     console.log(e);
-    //   });
   }
 
   // passes redux a prop to hande clicking to open the sidebar menu
@@ -54,6 +47,14 @@ class Todo extends Component {
           <Column key='Completed' title='Completed'/>
         </div>
         <DeleteArea />
+        <div className='info'>
+          <div>
+            Current Project: {this.props.currentProject ? this.props.currentProject : 'default'}
+          </div>
+          <div>
+            version: 0.2.1
+          </div>
+        </div>
       </div>
     )
   };
@@ -63,6 +64,7 @@ function mapStateToProps(state) {
   return {
     openSidebar: state.openSidebar,
     openLogin: state.openLogin,
+    currentProject: state.currentProject,
   };
 }
 

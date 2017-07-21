@@ -46,46 +46,6 @@ class DropdownLogin extends Component {
     }
   }
 
-//   render() {
-//     const actions = [
-//       <FlatButton
-//         label="Submit"
-//         primary={true}
-//         onTouchTap={this.handleClose}
-//       />,
-//     ];
-//
-//     return (
-//       <div>
-//         <Dialog
-//           title="Log In"
-//           actions={actions}
-//           modal={true}
-//           open={this.props.openLogin}
-//           onRequestClose={this.handleClose}
-//         >
-//         <FlatButton
-//           label="Google"
-//           primary={true}
-//           onTouchTap={this.handleLoginChoice('Google')}
-//         />
-//         <FlatButton
-//           label="Github"
-//           primary={true}
-//           onTouchTap={this.handleLoginChoice('Github')}
-//         />
-//         <FlatButton
-//           label="Facebook"
-//           primary={true}
-//           disabled={true}
-//           onTouchTap={this.handleLoginChoice('Facebook')}
-//         />
-//         </Dialog>
-//       </div>
-//     );
-//   }
-// }
-
 function mapStateToProps(state) {
   return {
     openLogin: state.openLogin,

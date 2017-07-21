@@ -81,7 +81,7 @@ class Sidebar extends Component {
     return (
         <Drawer
           docked={false}
-          width={250}
+          width={400}
           open={this.props.openSidebar}
           onRequestChange={this.handleToggle}
         >
@@ -94,6 +94,7 @@ class Sidebar extends Component {
           {this.props.openNewProject ?
           <form className='sidebarInput'>
           <TextField
+            className="sideInput"
             hintText="Enter a project"
             value={this.state.name}
             onChange={event => this.add(event, 'name')}
