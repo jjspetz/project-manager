@@ -11,7 +11,7 @@ import Todo from './todo.jsx';
 // allows for draging and dropping in react
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-// import { default as TouchBackend } from 'react-dnd-touch-backend';
+import { default as TouchBackend } from 'react-dnd-touch-backend';
 
 // Matreial UI imports
 import {indigo500, indigo100, indigo900, grey500, grey700, white} from 'material-ui/styles/colors';
@@ -37,6 +37,12 @@ const muiTheme = getMuiTheme({
   }
 })
 
+// checks if User is on a mobile device
+var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
+    (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
+
+console.log(isMobile);
+
 class App extends Component {
   render() {
     return (
@@ -51,4 +57,7 @@ class App extends Component {
   }
 }
 
-export default DragDropContext(HTML5Backend)(App);
+var backend = isMobile ?
+DragDropContext(TouchBackend)(App) : DragDropContext(HTML5Backend)(App);
+
+export default backend;
