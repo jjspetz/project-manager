@@ -21,7 +21,7 @@ import DeleteArea from './deleteArea'
 
 
 
-class Todo extends Component {
+class TodoMobile extends Component {
   // handles user logging in
   loginClick = (event) => {
     this.props.togglePopover(!this.props.openLogin);
@@ -42,9 +42,8 @@ class Todo extends Component {
         <Sidebar />
         <DropdownLogin />
         <div className='flex-container'>
-          <Column key='Uncompleted' title='Uncompleted'/>
-          <Column key='In Progress' title='In Progress'/>
-          <Column key='Completed' title='Completed'/>
+          <Column key='Todo' title='Todo'/>
+          <Column key='Done' title='Done'/>
         </div>
         <DeleteArea />
         <div className='info'>
@@ -78,4 +77,4 @@ function mapDispatchToProps(dispatch) {
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoMobile);

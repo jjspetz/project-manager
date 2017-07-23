@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from '../store.js';
 import Todo from './todo.jsx';
+import TodoMobile from './todo-alt.jsx';
 
 // allows for draging and dropping in react
 import { DragDropContext } from 'react-dnd';
@@ -49,7 +50,7 @@ class App extends Component {
       <Provider store={store}>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            <Todo/>
+            {isMobile ? <Todo/> : <TodoMobile/>}
           </div>
         </MuiThemeProvider>
       </Provider>
