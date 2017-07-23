@@ -42,7 +42,7 @@ const muiTheme = getMuiTheme({
 var isMobile = (navigator.userAgent.toLowerCase().indexOf('android') > -1) ||
     (navigator.userAgent.match(/(iPod|iPhone|iPad|BlackBerry|Windows Phone|iemobile)/));
 
-console.log(isMobile);
+console.log(navigator.userAgent);
 
 class App extends Component {
   render() {
@@ -50,7 +50,7 @@ class App extends Component {
       <Provider store={store}>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            {isMobile ? <Todo/> : <TodoMobile/>}
+            {isMobile ? <TodoMobile/> : <Todo/>}
           </div>
         </MuiThemeProvider>
       </Provider>
