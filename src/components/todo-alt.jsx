@@ -42,9 +42,9 @@ class TodoMobile extends Component {
         <Sidebar />
         <DropdownLogin />
         <div className='flex-container'>
-        <Column key='Uncompleted' size="14pt" title='Uncompleted'/>
-        <Column key='In Progress' size="14pt" title='In Progress'/>
-        <Column key='Completed' size="14pt" title='Completed'/>
+          <Column key='Uncompleted' size="12pt" title='Uncompleted'/>
+          <Column key='In Progress' size="12pt" title='In Progress'/>
+          <Column key='Completed' size="12pt" title='Completed'/>
         </div>
         <DeleteArea />
         <div className='info'>
@@ -52,7 +52,7 @@ class TodoMobile extends Component {
             Project: {this.props.currentProject ? this.props.currentProject : 'default'}
           </div>
           <div>
-            version: 0.2.2
+            version: 0.2.3
           </div>
         </div>
       </div>
