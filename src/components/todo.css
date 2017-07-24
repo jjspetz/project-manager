@@ -66,8 +66,10 @@ li:hover {
     margin-left: 1px;
   }
   .card ol {
-    list-style-position: inside;
-    text-align: left;
-    padding-bottom: 25%;
+    padding-bottom: 20%;
+  }
+  .cardInput {
+    left: 1%;
+    bottom: 2%;
   }
 }

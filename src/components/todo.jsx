@@ -19,7 +19,11 @@ import DropdownLogin from './login';
 import './todo.css';
 import DeleteArea from './deleteArea'
 
+// used to make input shorter
+const input = {
+    width: "62%",
 
+}
 
 class Todo extends Component {
   // handles user logging in
@@ -42,9 +46,9 @@ class Todo extends Component {
         <Sidebar />
         <DropdownLogin />
         <div className='flex-container'>
-          <Column key='Uncompleted' size="18pt" title='Uncompleted'/>
-          <Column key='In Progress' size="18pt" title='In Progress'/>
-          <Column key='Completed' size="18pt" title='Completed'/>
+          <Column key='Uncompleted' length={input} size="18pt" title='Uncompleted'/>
+          <Column key='In Progress' length={input} size="18pt" title='In Progress'/>
+          <Column key='Completed' length={input} size="18pt" title='Completed'/>
         </div>
         <DeleteArea />
         <div className='info'>

@@ -94,7 +94,7 @@ class Column extends Component {
               hintText="Enter a task"
               value={this.state.val}
               onChange={event => this.add(event, 'val')}
-              style={this.props.style ? this.props.style.input : {}}
+              style={this.props.style ? this.props.style.input : this.props.length}
             />
             <RaisedButton label="Submit" primary={true}
               onTouchTap={(event)=> this.addTask(event)}
