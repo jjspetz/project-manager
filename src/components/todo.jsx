@@ -52,7 +52,7 @@ class Todo extends Component {
             Project: {this.props.currentProject ? this.props.currentProject : 'default'}
           </div>
           <div>
-            version: 0.2.3
+            version: 0.2.4
           </div>
         </div>
       </div>

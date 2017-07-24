@@ -19,7 +19,26 @@ import DropdownLogin from './login';
 import './todo.css';
 import DeleteArea from './deleteArea'
 
+// sets mobile styling on material ui elements
+const style = {
+  label: {
+    fontSize: "8pt",
+    paddingLeft: "6px",
+    paddingRight: "6px",
+  },
+  button: {
+    width: "52px",
 
+  },
+  root: {
+    height: "26px",
+    minWidth: "0",
+  },
+  input: {
+    width: "50%",
+    fontSize: "10pt",
+  }
+}
 
 class TodoMobile extends Component {
   // handles user logging in
@@ -42,9 +61,9 @@ class TodoMobile extends Component {
         <Sidebar />
         <DropdownLogin />
         <div className='flex-container'>
-          <Column key='Uncompleted' size="12pt" title='Uncompleted'/>
-          <Column key='In Progress' size="12pt" title='In Progress'/>
-          <Column key='Completed' size="12pt" title='Completed'/>
+          <Column key='Uncompleted' style={style} size="12pt" title='Uncompleted'/>
+          <Column key='In Progress' style={style} size="12pt" title='In Progress'/>
+          <Column key='Completed' style={style} size="12pt" title='Completed'/>
         </div>
         <DeleteArea />
         <div className='info'>
@@ -52,7 +71,7 @@ class TodoMobile extends Component {
             Project: {this.props.currentProject ? this.props.currentProject : 'default'}
           </div>
           <div>
-            version: 0.2.3
+            version: 0.2.4
           </div>
         </div>
       </div>

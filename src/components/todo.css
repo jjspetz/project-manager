@@ -23,7 +23,7 @@
 .card ol {
   list-style-position: inside;
   text-align: left;
-  padding-bottom: 7%;
+  padding-bottom: 25%;
 }
 
 li {
@@ -64,5 +64,10 @@ li:hover {
   }
   .card:first-child {
     margin-left: 1px;
+  }
+  .card ol {
+    list-style-position: inside;
+    text-align: left;
+    padding-bottom: 25%;
   }
 }
