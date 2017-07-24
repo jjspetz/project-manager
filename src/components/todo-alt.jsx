@@ -42,8 +42,9 @@ class TodoMobile extends Component {
         <Sidebar />
         <DropdownLogin />
         <div className='flex-container'>
-          <Column key='Todo' title='Todo'/>
-          <Column key='Done' title='Done'/>
+        <Column key='Uncompleted' size="14pt" title='Uncompleted'/>
+        <Column key='In Progress' size="14pt" title='In Progress'/>
+        <Column key='Completed' size="14pt" title='Completed'/>
         </div>
         <DeleteArea />
         <div className='info'>

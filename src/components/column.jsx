@@ -76,7 +76,7 @@ class Column extends Component {
     return connectDropTarget(
       <div className='flex-container'>
       <Card className='card'>
-        <CardTitle title={this.props.title}/>
+        <CardTitle titleStyle={{fontSize: this.props.size}} title={this.props.title}/>
         <ol id={this.props.title}>
         {this.props.tasks ? Object.values(this.props.tasks).map((task) =>
           task.column === this.props.title && task.project === this.props.currentProject

@@ -4,3 +4,11 @@ body {
   font-family: sans-serif;
   font-size: 16pt;
 }
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+  body {
+    font-size: 14pt;
+  }
+}

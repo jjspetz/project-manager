@@ -42,9 +42,9 @@ class Todo extends Component {
         <Sidebar />
         <DropdownLogin />
         <div className='flex-container'>
-          <Column key='Uncompleted' title='Uncompleted'/>
-          <Column key='In Progress' title='In Progress'/>
-          <Column key='Completed' title='Completed'/>
+          <Column key='Uncompleted' size="18pt" title='Uncompleted'/>
+          <Column key='In Progress' size="18pt" title='In Progress'/>
+          <Column key='Completed' size="18pt" title='Completed'/>
         </div>
         <DeleteArea />
         <div className='info'>
