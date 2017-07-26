@@ -35,7 +35,7 @@ const style = {
     minWidth: "0",
   },
   input: {
-    width: "50%",
+    width: "35%",
     fontSize: "10pt",
   }
 }
@@ -71,7 +71,7 @@ class TodoMobile extends Component {
             Project: {this.props.currentProject ? this.props.currentProject : 'default'}
           </div>
           <div>
-            version: 0.2.4
+            version: 0.2.5
           </div>
         </div>
       </div>

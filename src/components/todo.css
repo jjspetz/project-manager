@@ -52,7 +52,7 @@ li:hover {
 .info {
   font-size: 80%;
   position: absolute;
-  bottom: 1%;
+  bottom: -5%;
   left: 2%;
 }
 
@@ -68,8 +68,12 @@ li:hover {
   .card ol {
     padding-bottom: 20%;
   }
+  /*needs more work */
   .cardInput {
-    left: 1%;
-    bottom: 2%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
   }
 }

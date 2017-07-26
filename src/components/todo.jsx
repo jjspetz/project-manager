@@ -56,8 +56,9 @@ class Todo extends Component {
             Project: {this.props.currentProject ? this.props.currentProject : 'default'}
           </div>
           <div>
-            version: 0.2.4
+            version: 0.2.5
           </div>
+          <div>Login to begin</div>
         </div>
       </div>
     )
