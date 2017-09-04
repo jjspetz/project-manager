@@ -55,9 +55,6 @@ li:hover {
   bottom: -5%;
   left: 2%;
 }
-.task {
-  margin-bottom: 20px;
-}
 
 @media
 (-webkit-min-device-pixel-ratio: 2),

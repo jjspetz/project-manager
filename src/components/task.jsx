@@ -22,7 +22,6 @@ const taskSource = {
 
 const style = {
   width: '92%',
-  float: 'left',
   padding: 10,
 }
 
