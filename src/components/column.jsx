@@ -89,7 +89,7 @@ class Column extends Component {
           </FloatingActionButton>
 
           {this.props.openInput === this.props.title ?
-          <form className='cardInput'>
+          <form className='cardInput' onSubmit={e => { e.preventDefault(); }}>
             <TextField
               hintText="Enter a task"
               value={this.state.val}
