@@ -5,6 +5,7 @@
 */
 
 import React, { Component } from 'react';
+import Paper from 'material-ui/Paper';
 import PropTypes from 'prop-types';
 import { ItemTypes } from '../constants/constants.js';
 import { DragSource } from 'react-dnd';
@@ -19,6 +20,12 @@ const taskSource = {
   }
 };
 
+const style = {
+  width: '92%',
+  float: 'left',
+  padding: 10,
+}
+
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
@@ -30,12 +37,16 @@ class Task extends Component {
   render() {
     const { connectDragSource, isDragging } = this.props;
     return connectDragSource(
-      <li key={this.props.task.task} style={{
-        opacity: isDragging ? 0.5 : 1,
-        cursor: 'move'
-      }}>
-        {this.props.task.task}
-      </li>
+      <div>
+        <Paper style={style} zDepth={1} >
+          <li key={this.props.task.task} style={{
+            opacity: isDragging ? 0.5 : 1,
+            cursor: 'move'
+          }}>
+            {this.props.task.task}
+          </li>
+        </Paper>
+      </div>
     );
   }
 }
