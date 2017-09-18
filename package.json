@@ -17,12 +17,15 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "babel-jest": "^21.0.2",
+    "jest": "^21.1.0",
     "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest --coverage",
+    "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
   }
 }

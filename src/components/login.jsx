@@ -16,7 +16,6 @@ class DropdownLogin extends Component {
   };
 
   handleLoginChoice = (value) => {
-    this.props.setProvider(value);
     this.props.togglePopover(!this.props.openLogin);
     auth(value)
       .then(function (user) {
@@ -57,8 +56,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      togglePopover: togglePopover,
-      setProvider: setProvider,
+      togglePopover,
     }, dispatch
   )
 }
