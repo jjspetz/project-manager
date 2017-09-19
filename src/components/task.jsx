@@ -32,7 +32,7 @@ function collect(connect, monitor) {
   }
 }
 
-class Task extends Component {
+export class Task extends Component {
   render() {
     const { connectDragSource, isDragging } = this.props;
     return connectDragSource(

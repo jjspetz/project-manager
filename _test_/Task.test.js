@@ -1,24 +1,22 @@
-// import React from 'react';
-// import { shallow } from 'enzyme'
-// import { Task } from '../src/components/task';
-// import { expect } from 'chai';
-//
-// const wrapper = shallow(<Task />);
-//
-// describe('Task', () => {
-//   const task = 'Run Tests';
-//   const key = 'key';
-//   it('should render a div with class task', () => {
-//     expect(task).to.be.ok;
-//   });
-//
-//   // it('should render a div with the todo text', () => {
-//   //   const component = shallow(
-//   //     <Task key = {key} todo={task} />
-//   //   );
-//   //   const taskEle = findRenderedDOMComponentWithClass(component, 'todo');
-//   //   const taskText = taskEle.textContent;
-//   //
-//   //   expect(taskText).to.equal(task);
-//   // });
-// });
+import React from 'react';
+import { shallow } from 'enzyme'
+import { Task } from '../src/components/task.jsx';
+
+const faux = el => el;
+const taskName = 'testing'
+const wrapper = shallow(<Task task={taskName}
+                              connectDragSource={faux}
+                              isDragging />);
+
+describe('Task', () => {
+  it('should render', () => {
+    expect(wrapper).toBeTruthy();
+  });
+  it('should contain a div', () => {
+    expect(wrapper.find('div')).toBeTruthy();
+  });
+  it('should contain a li with the task', () => {
+    expect(wrapper.find('div')).toBeTruthy();
+    expect(wrapper.instance().props.task).toContain(taskName);
+  });
+});

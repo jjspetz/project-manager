@@ -9,7 +9,7 @@ import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 // import RaisedButton from 'material-ui/RaisedButton';
 
-class DropdownLogin extends Component {
+export class DropdownLogin extends Component {
 
   handleClose = () => {
     this.props.togglePopover(!this.props.openLogin);
