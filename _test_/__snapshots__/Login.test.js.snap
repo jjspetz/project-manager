@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownLogin /> should match snapshot 1`] = `
+<Popover
+  anchorOrigin={
+    Object {
+      "horizontal": "left",
+      "vertical": "bottom",
+    }
+  }
+  animated={true}
+  autoCloseWhenOffScreen={true}
+  canAutoPosition={true}
+  onRequestClose={[Function]}
+  open={false}
+  style={
+    Object {
+      "overflowY": "auto",
+    }
+  }
+  targetOrigin={
+    Object {
+      "horizontal": "left",
+      "vertical": "top",
+    }
+  }
+  useLayerForClickAway={true}
+  zDepth={1}
+>
+  <Menu
+    autoWidth={true}
+    desktop={false}
+    disableAutoFocus={false}
+    initiallyKeyboardFocused={false}
+    maxHeight={null}
+    multiple={false}
+    onChange={[Function]}
+    onEscKeyDown={[Function]}
+    onItemTouchTap={[Function]}
+    onKeyDown={[Function]}
+  >
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      onTouchTap={[Function]}
+      primaryText="Google"
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    />
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      onTouchTap={[Function]}
+      primaryText="Github"
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    />
+    <MenuItem
+      anchorOrigin={
+        Object {
+          "horizontal": "right",
+          "vertical": "top",
+        }
+      }
+      checked={false}
+      desktop={false}
+      disabled={false}
+      focusState="none"
+      insetChildren={false}
+      onTouchTap={[Function]}
+      primaryText="Facebook"
+      targetOrigin={
+        Object {
+          "horizontal": "left",
+          "vertical": "top",
+        }
+      }
+    />
+  </Menu>
+</Popover>
+`;

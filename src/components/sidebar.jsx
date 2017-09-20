@@ -23,7 +23,7 @@ import './todo.css';
 import database, {User} from '../fire.js';
 
 
-class Sidebar extends Component {
+export class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {

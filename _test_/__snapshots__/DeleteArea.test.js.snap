@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteArea should match snapshot 1`] = `
+<div>
+  <RaisedButton
+    className="delete"
+    disabled={true}
+    fullWidth={false}
+    icon={<ActionDelete />}
+    labelPosition="after"
+    primary={true}
+    secondary={false}
+  />
+</div>
+`;

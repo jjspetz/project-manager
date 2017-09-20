@@ -25,7 +25,7 @@ const input = {
 
 }
 
-class Todo extends Component {
+export class Todo extends Component {
   // handles user logging in
   loginClick = (event) => {
     this.props.togglePopover(!this.props.openLogin);
