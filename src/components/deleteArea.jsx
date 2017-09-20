@@ -22,7 +22,7 @@ function collect(connect, monitor) {
   };
 }
 
-class DeleteArea extends Component {
+export class DeleteArea extends Component {
   render() {
     const { connectDropTarget} = this.props;
     return connectDropTarget(
