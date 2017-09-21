@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column component should match snapshot 1`] = `
+<div
+  className="flex-container"
+>
+  <Card
+    className="card"
+    expandable={false}
+    expanded={null}
+    initiallyExpanded={false}
+  >
+    <CardTitle
+      titleStyle={
+        Object {
+          "fontSize": undefined,
+        }
+      }
+    />
+    <ol />
+    <div
+      className="lowerCard"
+    >
+      <FloatingActionButton
+        className="add"
+        disabled={false}
+        mini={true}
+        onTouchTap={[Function]}
+        secondary={false}
+        zDepth={2}
+      >
+        <ContentAdd />
+      </FloatingActionButton>
+      <form
+        className="cardInput"
+        onSubmit={[Function]}
+      >
+        <TextField
+          disabled={false}
+          floatingLabelFixed={false}
+          fullWidth={false}
+          hintText="Enter a task"
+          multiLine={false}
+          onChange={[Function]}
+          rows={1}
+          type="text"
+          underlineShow={true}
+          value=""
+        />
+        <RaisedButton
+          buttonStyle={Object {}}
+          disabled={false}
+          fullWidth={false}
+          label="Submit"
+          labelPosition="after"
+          labelStyle={Object {}}
+          onTouchTap={[Function]}
+          primary={true}
+          secondary={false}
+          style={Object {}}
+        />
+      </form>
+    </div>
+  </Card>
+</div>
+`;

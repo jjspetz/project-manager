@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { Sidebar } from '../src/components/sidebar.jsx';
+import { Column } from '../src/components/column.jsx';
 
-const wrapper = shallow(<Sidebar />);
+const faux = el => el;
+const wrapper = shallow(<Column connectDropTarget={faux} />);
 
-describe('Sidebar component', () => {
+
+describe('Column component', () => {
   it('should render', () => {
     expect(wrapper).toBeTruthy();
   });

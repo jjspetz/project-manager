@@ -35,7 +35,7 @@ function collect(connect, monitor) {
   };
 }
 
-class Column extends Component {
+export class Column extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -127,9 +127,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 Column.propTypes = {
-  isOver: PropTypes.bool.isRequired,
+  isOver: PropTypes.bool,
   place: PropTypes.number
 };
 
-Column = DropTarget(ItemTypes.TASK, dropTask, collect)(Column)
-export default connect(mapStateToProps, mapDispatchToProps)(Column)
+let expColumn = DropTarget(ItemTypes.TASK, dropTask, collect)(Column)
+export default connect(mapStateToProps, mapDispatchToProps)(expColumn)

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo component should match snapshot 1`] = `
+<div
+  className="mainDisplay"
+>
+  <AppBar
+    iconElementRight={
+      <FlatButton
+        disabled={false}
+        fullWidth={false}
+        label="Login"
+        labelPosition="after"
+        labelStyle={Object {}}
+        onKeyboardFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onTouchStart={[Function]}
+        onTouchTap={[Function]}
+        primary={false}
+        secondary={false}
+      />
+    }
+    onLeftIconButtonTouchTap={[Function]}
+    showMenuIconButton={true}
+    title="Project Manager"
+    zDepth={1}
+  />
+  <Connect(Sidebar) />
+  <Connect(DropdownLogin) />
+  <div
+    className="flex-container"
+  >
+    <Connect(DropTarget(Column))
+      key="Uncompleted"
+      length={
+        Object {
+          "width": "62%",
+        }
+      }
+      size="18pt"
+      title="Uncompleted"
+    />
+    <Connect(DropTarget(Column))
+      key="In Progress"
+      length={
+        Object {
+          "width": "62%",
+        }
+      }
+      size="18pt"
+      title="In Progress"
+    />
+    <Connect(DropTarget(Column))
+      key="Completed"
+      length={
+        Object {
+          "width": "62%",
+        }
+      }
+      size="18pt"
+      title="Completed"
+    />
+  </div>
+  <DropTarget(DeleteArea) />
+  <div
+    className="info"
+  >
+    <div>
+      Project: 
+      default
+    </div>
+    <div>
+      version: 0.2.6
+    </div>
+    <div>
+      Login to begin
+    </div>
+  </div>
+</div>
+`;

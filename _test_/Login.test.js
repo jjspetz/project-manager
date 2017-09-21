@@ -1,6 +1,6 @@
-// how to handle modules in component class
+
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { DropdownLogin } from '../src/components/login.jsx';
 
@@ -12,6 +12,9 @@ describe('<DropdownLogin />', () => {
   });
   it('should contain a div', () => {
     expect(wrapper.find('div')).toBeTruthy();
+  });
+  it('Popover should be closed initially', () => {
+    expect(wrapper.props().open).toBe(false);
   });
   it('should match snapshot', () => {
     const tree = toJson(wrapper);
